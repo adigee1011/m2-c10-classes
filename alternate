@@ -1,0 +1,50 @@
+// this is the alternate assignment to mission to mars
+
+
+//2c classes 
+//vehicle - 
+// type ( string: bus, plane,train,boat)
+//name {string}
+*//crew {array of Employee Objects}
+//methods
+//canGO() {returns true if the vehicle can go}
+if there is a crew member whose title matches up with the type of the vehicle
+
+
+//employee object
+//name{string}
+//title{string: driver, captain,pilot,engineer}
+*//currentVehicale {extra credit}: if the employee is on a vehicle, this holds the vehicle they are assigned
+//methods
+//assign(VEHICLE); // add this employee to the vehicles crew
+
+
+
+
+//scenario for a charter agency and have vehicles and crew
+
+
+let p1 = new Vehicle("plane',"berdie")
+let p2 = new Vehicle("plane',"bererniedie")
+let p3 = new Vehicle("bus',"big blue")
+let p4 = new Vehicle("boat',"sinkalot")
+let p5 = new Vehicle("train',"thomas")
+let p6 = new Vehicle("plane',"berdie")
+let p7 = new Vehicle("plane',"berdie")
+
+let e1 = new employee("john", "crew);
+let e2 = new employee("james", "piot)
+let e3 = new employee("jack", "pilot)
+let e4 = new employee("jessie", "driver)
+let e5 = new employee("jason", "captain)
+let e6 = new employee("jackie", "crew)
+
+
+v1.cango() //false
+e2.assign.v1 //asing james to bererniedie
+v1,cango //true
+
+e2.assign.v2
+
+v2.cango //true 
+

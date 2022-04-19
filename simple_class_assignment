@@ -21,17 +21,11 @@ class Address {
      * @param {*} z zip of address
      * @param {*} s state of address
      */
-    constructor(st,c,s,z) { // it is called constructor because you are construcing the code when you create the instance
+    constructor(st,c,z,s) { // it is called constructor because you are construcing the code when you create the instance
         //whatever code you type here,
         //will be executed when a new instance of 
         //the class is created
         console.log("inside the constructor");
-        //we use this because this's instance is abc
-        this.street = st;
-        this.city - c;
-        this.zip = z;
-        this.state = s;
-
     }
 
 
@@ -39,15 +33,15 @@ class Address {
 
 
 // 1234 main street, apt 101, austin, exas 78704
-let home = new Address ("1234 main street, apt 101", "austin", "texas","78704");
+let home = new Address ();
 
 
 //9876 1st street, suite 2013. austin texas, 78707
 let work = new Address ();
 
-//varaibles
-//functions
-//if
-//for loops
-//arrays
-//object
+home.street = "1234 main street, apt 101"
+home.city = "austin";
+home.state = "texas";
+home.zip = "78704"
+
+console.log("street for my home", home.street)
