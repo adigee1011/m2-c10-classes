@@ -58,8 +58,63 @@ class Car {
             this.fuel = 0;
         }
        }
+
+    /**
+     * this method returns a simulated fuel efficiency
+     * that degrades the higher odometer reading is
+     */
+    getActualEfficiency(){
+        if(this.odometer<50000){
+            return this.efficency;
+        } else if (this.odometer <100000) {
+        return this.efficency * 0.95
+        }
+        else {
+            return this.efficency*0.90;
+        }
+    }
+
+    
+    /**
+     * 
+     */
+    drivingDistance(){
+        return this.fuel * this.getActualEfficiency()
+
+       
+    } 
+
+    /**
+     * 
+     * @param {*} miles 
+     */
+     drive(miles){
+
+        if(miles<0){
+            return;
+        }
+
+        let maxMiles = this.drivingDistance;
+
+        //if more miles are requested than maxMiles,
+        //then we can cap it as maxMiles
+        if(miles>maxMiles){
+            miles = maxMiles;
+        }
+
+        this.odometer += miles;
+
+        let fuelUsed = miles/this.getActualEfficiency();
+        this.fuel -= fuelUsed
+
+        //miles traveled + miles/gallon
+        //10m, 5m/g 2 10/5
+        //1m, 100m/g ==> 0.01
+
+        
 }
 
+}
 
 
 if(typeof describe == 'function') {
@@ -82,7 +137,7 @@ describe("Constructor Tests", function(){
 
 })  
 
-describe("Suite2",function(){
+describe("add fuel",function(){
     it("add fuel", function(){
         let c = new Car(1,10,30);
         assert.equal(c.fuel,0,"Car should start with 0 fuel")
@@ -112,6 +167,73 @@ describe("Suite2",function(){
     })
 })
 
+describe("driving", function(){
+    it("test1",function(){
+        let c = new Car(1,10,30);
+        assert.equal(c.odometer,0,"car has not moved yet")
+
+        c.drive(30);
+
+        assert.equal(c.odometer,0,"because we cannot go with no fuel")
+        c.addFuel(10);
+        c.drive(30)
+        assert.equal(c.odometer,30)
+        assert.equal(c.fuel,9,"")
+    })
+
+    it("test2",function(){
+    let c = new Car(1,10,30);
+    c.addFuel(1);
+    c.drive(100);
+    assert.equal(c.odometer,30,"car drives 30 mpg")
+    assert.equal(c.fuel,0,"fuel is over")
+    })
+
+    it("test3",function(){
+    let c = new Car(1,10,30);
+    c.addFuel(1);
+    c.drive(-30);
+    assert.equal(c.odometer,0);
+
+    })
+    })
+
+    describe("drive distance",function(){
+        it("test1",function(){
+            let c = new Car(1,10,30);
+            assert.equal(c.drivingDistance,0)
+        })
+
+        it("test2",function(){
+            let c = new Car(1,10,30);
+            c.addFuel(2);
+            assert.equal(c.drivingDistance,60)
+        })
+
+        it("test3",function(){
+            let c = new Car(1,10,15);
+            c.addFuel(2);
+            assert.equal(c.drivingDistance,30);
+
+        })
+    })
+
+    describe("getActualEfficiency()",function(){
+        it("medicum mileage test",function(){
+            let c = new Car(1,10,30);
+            while(c.odometer<51000){
+            c.addFuel(10);
+            c.drive(300);
+            }
+            assert.equal(c.getActualEfficiency(),28.5)
+        })
+
+        it("high mileage test",function(){
+            let c = new Car(1,10,30);
+            c.odometer = 100000
+            assert.equal(c.getActualEfficiency(),27)
+        })
+    })
 }
 
 
@@ -121,5 +243,9 @@ let expected = 0;
 let actual = bettleJuice.odometer;
 
 
+module.exports = Car;
 
 
+
+
+  
