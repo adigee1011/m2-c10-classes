@@ -1,0 +1,7 @@
+        if(this.fuel == 0){
+            if(this.odometer == 0){
+                this.odometer = 0;
+            } else {
+            this.odometer = this.odometer + 0;
+            }
+        }

@@ -110,7 +110,7 @@ let s7 = new Student('Jessie',20);
 
 course1.addStudent(s1);
 console.log(course1);
-course1.addStudent(s2);``
+course1.addStudent(s2);
 console.log(course1);
 course1.addStudent(s3);
 course1.addStudent(s4);

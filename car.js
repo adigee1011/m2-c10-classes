@@ -78,9 +78,8 @@ class Car {
     /**
      * 
      */
-    drivingDistance(){
+    getdrivingDistance(){
         return this.fuel * this.getActualEfficiency()
-
        
     } 
 
@@ -94,7 +93,7 @@ class Car {
             return;
         }
 
-        let maxMiles = this.drivingDistance;
+        let maxMiles = this.getdrivingDistance();
 
         //if more miles are requested than maxMiles,
         //then we can cap it as maxMiles
@@ -201,19 +200,19 @@ describe("driving", function(){
     describe("drive distance",function(){
         it("test1",function(){
             let c = new Car(1,10,30);
-            assert.equal(c.drivingDistance,0)
+            assert.equal(c.getdrivingDistance(),0)
         })
 
         it("test2",function(){
             let c = new Car(1,10,30);
             c.addFuel(2);
-            assert.equal(c.drivingDistance,60)
+            assert.equal(c.getdrivingDistance(),60)
         })
 
         it("test3",function(){
             let c = new Car(1,10,15);
             c.addFuel(2);
-            assert.equal(c.drivingDistance,30);
+            assert.equal(c.getdrivingDistance(),30);
 
         })
     })
