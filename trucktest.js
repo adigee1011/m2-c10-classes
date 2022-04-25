@@ -17,8 +17,7 @@ describe("basic extend",function(){
         t.loaded = true;
         t.addFuel(10);
         t.drive(15);
-        
         assert.equal(t.odometer,15);
-        assert.equal(t.fuel,9);
-        })
+        assert.equal(t.fuel,8);
+        }) 
 })

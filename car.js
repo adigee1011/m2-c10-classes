@@ -76,7 +76,8 @@ class Car {
 
     
     /**
-     * 
+     * this method returns the maximum number of miles
+     * this car can go given its current fuel level
      */
     getdrivingDistance(){
         return this.fuel * this.getActualEfficiency()
@@ -115,6 +116,8 @@ class Car {
 
 }
 
+
+//these are units tests as we are testing each unit of the code
 
 if(typeof describe == 'function') {
 
@@ -218,7 +221,7 @@ describe("driving", function(){
     })
 
     describe("getActualEfficiency()",function(){
-        it("medicum mileage test",function(){
+        it("medium mileage test",function(){
             let c = new Car(1,10,30);
             while(c.odometer<51000){
             c.addFuel(10);
@@ -243,7 +246,6 @@ let actual = bettleJuice.odometer;
 
 
 module.exports = Car;
-
 
 
 
