@@ -7,12 +7,12 @@ class Truck extends Car {
     //does not take in a fuel tank size,
     //we pass in 40 to the car class,
     //because all trucks in our simulation get a 40 gallon tank
-    constructor(id,capacity,efficency){
-        super(id,capacity,efficency)
+    constructor(id,capacity,efficency){ // assume all truck have capacity as 40, then you can remove capacity from this line
+        super(id,capacity,efficency) // the car class expects capacity so you can replace capacity by 40 here 
     }
 
     getActualEfficiency(){
-        let baseEfficency = super.getActualEfficiency();
+        let baseEfficency = super.getActualEfficiency(); //call the parent's class method by using super
         if(this.loaded){
             return baseEfficency * .50
         }
@@ -23,5 +23,4 @@ class Truck extends Car {
 }
 
 
-module.exports = Truck;
 
