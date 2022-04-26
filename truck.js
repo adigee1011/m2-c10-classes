@@ -23,4 +23,5 @@ class Truck extends Car {
 }
 
 
+module.exports = Truck;
 
