@@ -245,7 +245,7 @@ let expected = 0;
 let actual = bettleJuice.odometer;
 
 
-
+module.exports = Car;
 
 
 
